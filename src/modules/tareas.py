@@ -1,13 +1,15 @@
 from datetime import datetime
 
-def agregar_tarea(tareas: list, sistema_usuarios, asignar_a=None):
-    print("\n falta hacer")
+class Tarea:
+    def __init__(self, titulo, descripcion, fecha_vencimiento):
+        self.titulo = titulo
+        self.descripcion = descripcion
+        self.fecha_vencimiento = fecha_vencimiento
+        self.completada = False
 
-def mostrar_tareas(tareas: list, sistema_usuarios):
-    print("falta hacer")
+    def marcar_como_completada(self):
+        self.completada = True
 
-def asignar_tarea_a_empleado(tareas: list, sistema_usuarios):
-    print("flata hacer")
-
-def actualizar_estado_tarea(tareas: list, sistema_usuarios):
-    print("falta hacer")
+    def __str__(self):
+        estado = "Completada" if self.completada else "Pendiente"
+        return f"Tarea: {self.titulo}\nDescripción: {self.descripcion}\nFecha de Vencimiento: {self.fecha_vencimiento}\nEstado: {estado}"
