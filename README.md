@@ -4,7 +4,7 @@
 
 **INSTITUCIÓN:** Servicio Nacional de Aprendizaje – SENA / Centro de Biotecnología  
 **PROGRAMA:** Análisis y Desarrollo de Software  
-**APRENDICES:** Juan José Bocanegra, Cielo, Leonardo y Laura Fonseca  
+**APRENDICES:** Juan José Bocanegra, Cielo Rodriguez , Jeonardo Perche y Laura Fonseca  
 **INSTRUCTOR:** Esteban Hernández  
 **FICHA:** 3203082  
 
