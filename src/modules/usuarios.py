@@ -52,13 +52,13 @@ class SistemaUsuarios:
                             contraseña=info['password'],
                             rol=info['rol']
                         )
-                print(f"✓ {len(self.usuarios)} usuarios cargados correctamente")
+                print(f"Se cargaron {len(self.usuarios)} usuarios correctamente")
             else:
-                print("⚠ Archivo de usuarios no encontrado. Iniciando con lista vacía.")
+                print("Archivo de usuarios no encontrado. Iniciando con lista vacia.")
         except json.JSONDecodeError:
-            print("✗ Error al leer el archivo JSON. Iniciando con lista vacía.")
+            print("Error al leer el archivo JSON. Iniciando con lista vacia.")
         except Exception as e:
-            print(f"✗ Error inesperado al cargar usuarios: {e}")
+            print(f"Error inesperado al cargar usuarios: {e}")
 
     def guardar_usuarios(self):
         """Guarda todos los usuarios en el archivo JSON"""
@@ -72,10 +72,10 @@ class SistemaUsuarios:
             with open(self.archivo_json, 'w', encoding='utf-8') as archivo:
                 json.dump(datos, archivo, indent=4, ensure_ascii=False)
             
-            print("✓ Usuarios guardados correctamente")
+            print("Usuarios guardados correctamente")
             return True
         except Exception as e:
-            print(f"✗ Error al guardar usuarios: {e}")
+            print(f"Error al guardar usuarios: {e}")
             return False
 
     def validar_nombre_usuario(self, nombre: str) -> tuple[bool, str]:
@@ -84,26 +84,26 @@ class SistemaUsuarios:
         Retorna (es_valido, mensaje_error)
         """
         if not nombre or len(nombre.strip()) == 0:
-            return False, "El nombre de usuario no puede estar vacío"
+            return False, "El nombre de usuario no puede estar vacio"
         
         if len(nombre) < 3:
             return False, "El nombre debe tener al menos 3 caracteres"
         
         if len(nombre) > 20:
-            return False, "El nombre no puede tener más de 20 caracteres"
+            return False, "El nombre no puede tener mas de 20 caracteres"
         
         if not nombre.replace('_', '').replace('-', '').isalnum():
-            return False, "El nombre solo puede contener letras, números, guiones y guiones bajos"
+            return False, "El nombre solo puede contener letras, numeros, guiones y guiones bajos"
         
         return True, ""
 
     def validar_contraseña(self, contraseña: str) -> tuple[bool, str]:
         """
-        Valida que la contraseña cumpla con los requisitos mínimos.
+        Valida que la contraseña cumpla con los requisitos minimos.
         Retorna (es_valida, mensaje_error)
         """
         if not contraseña or len(contraseña.strip()) == 0:
-            return False, "La contraseña no puede estar vacía"
+            return False, "La contraseña no puede estar vacia"
         
         if len(contraseña) < 4:
             return False, "La contraseña debe tener al menos 4 caracteres"
@@ -112,7 +112,7 @@ class SistemaUsuarios:
 
     def validar_rol(self, rol: str) -> tuple[bool, str]:
         """
-        Valida que el rol sea válido (jefe o empleado).
+        Valida que el rol sea valido (jefe o empleado).
         Retorna (es_valido, mensaje_error)
         """
         roles_validos = ["jefe", "empleado"]
@@ -130,69 +130,69 @@ class SistemaUsuarios:
             nombre: Nombre de usuario
             contraseña: Contraseña del usuario
             rol: Rol del usuario ("jefe" o "empleado")
-            registrado_por: Usuario que está registrando (debe ser jefe)
+            registrado_por: Usuario que esta registrando (debe ser jefe)
         
         Returns:
             (exito, mensaje)
         """
         if registrado_por and not registrado_por.es_jefe():
-            return False, "✗ Solo los jefes pueden registrar nuevos usuarios"
+            return False, "Solo los jefes pueden registrar nuevos usuarios"
         
         # aca se valida nombre de usuario
         valido, mensaje = self.validar_nombre_usuario(nombre)
         if not valido:
-            return False, f"✗ {mensaje}"
+            return False, mensaje
         
         # aca se verifica si el usuario ya existe
         if nombre in self.usuarios:
-            return False, f"✗ El usuario '{nombre}' ya existe"
+            return False, f"El usuario '{nombre}' ya existe"
         
-        # se confirma la contraseñs
+        # se confirma la contraseña
         valido, mensaje = self.validar_contraseña(contraseña)
         if not valido:
-            return False, f"✗ {mensaje}"
+            return False, mensaje
         
         # se valida el rol
         valido, mensaje = self.validar_rol(rol)
         if not valido:
-            return False, f"✗ {mensaje}"
+            return False, mensaje
         
         # se crea y se guarda el nuevo usuario
         nuevo_usuario = Usuario(nombre, contraseña, rol.lower())
         self.usuarios[nombre] = nuevo_usuario
         
         if self.guardar_usuarios():
-            return True, f"✓ Usuario '{nombre}' registrado exitosamente como {rol}"
+            return True, f"Usuario '{nombre}' registrado exitosamente como {rol}"
         else:
             # si llega a fallar el guardado, se revierte
             del self.usuarios[nombre]
-            return False, "✗ Error al guardar el usuario"
+            return False, "Error al guardar el usuario"
 
     def iniciar_sesion(self, nombre: str, contraseña: str) -> tuple[bool, str]:
         """
-        Inicia sesión con un usuario existente.
+        Inicia sesion con un usuario existente.
         Retorna (exito, mensaje)
         """
         if not nombre or not contraseña:
-            return False, "✗ Nombre de usuario y contraseña son requeridos"
+            return False, "Nombre de usuario y contraseña son requeridos"
         
         if nombre not in self.usuarios:
-            return False, "✗ Usuario o contraseña incorrectos"
+            return False, "Usuario o contraseña incorrectos"
         
         usuario = self.usuarios[nombre]
         if usuario.contraseña != contraseña:
-            return False, "✗ Usuario o contraseña incorrectos"
+            return False, "Usuario o contraseña incorrectos"
         
         self.usuario_actual = usuario
-        return True, f"✓ Bienvenido {nombre}!"
+        return True, f"Bienvenido {nombre}!"
 
     def cerrar_sesion(self):
-        """Cierra la sesión del usuario actual"""
+        """Cierra la sesion del usuario actual"""
         if self.usuario_actual:
             nombre = self.usuario_actual.nombre
             self.usuario_actual = None
-            return True, f"✓ Sesión cerrada. ¡Hasta luego {nombre}!"
-        return False, "✗ No hay ninguna sesión activa"
+            return True, f"Sesion cerrada. Hasta luego {nombre}!"
+        return False, "No hay ninguna sesion activa"
 
     def obtener_usuario_actual(self) -> Usuario:
         """Retorna el usuario actualmente autenticado"""
