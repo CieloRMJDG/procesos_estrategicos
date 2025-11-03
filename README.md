@@ -81,25 +81,22 @@ Sistema de Tareas
 
 ## Estructura del Proyecto
 ```
-sistema-tareas/
+/procesosestrategicosmain
 ├── data/
-│   ├── usuarios.json          # Datos de usuarios
-│   └── data/
-│       └── tareas.csv         # Registro de tareas
-├── modules/
-│   ├── __init__.py
-│   ├── usuarios.py            # Laura - Gestión de usuarios
-│   ├── tareas.py              # Leonardo - Gestión de tareas
-│   ├── reporte.py             # Bocanegra - Reportes
-│   └── cargar.py              # Utilidades de carga
+│   └── usuarios.json        # Base de datos de usuarios
 ├── src/
+│   ├── main.py              # Punto de entrada y menú principal (Bocanegra)
+│   ├── modules/
+│   │   ├── __init__.py      # Inicialización del paquete
+│   │   ├── usuarios.py      # Gestión de usuarios y roles (Laura)
+│   │   ├── cargar.py        # Carga de datos (Cielo)
+│   │   ├── tareas.py        # Gestión de tareas (Leonardo)
+│   │   └── reporte.py       # Generación de reportes CSV (Bocanegra)
 │   └── data/
-│       └── tareas.csv         # Tareas guardadas
-├── main.py                     # Bocanegra - Punto de entrada
-├── .gitignore                  # Archivos a ignorar
-├── package.json                # Configuración del proyecto
-├── usuarios.txt                # Archivo de usuarios (legacy)
-└── README.md                   # Este archivo
+│       └── tareas.csv       # Almacenamiento de tareas
+├── README.md
+├── .gitignore
+└── usuarios.txt             
 ```
 
 ---
