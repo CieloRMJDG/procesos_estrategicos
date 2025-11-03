@@ -1,5 +1,7 @@
 
 from modules.usuarios import SistemaUsuarios
+from modules.tareas import Tarea, GestorTareas #Importar clases Tarea y GestorTareas, para usar a futuro
+
 
 def mostrar_menu_principal():
     print("\n=== Sistema de Tareas ===")

@@ -38,3 +38,15 @@ class GestorTareas:
         return [tarea for tarea in self.tareas if not tarea.completada]
     def listar_tareas_completadas(self):
         return [tarea for tarea in self.tareas if tarea.completada]
+
+
+
+
+
+
+
+
+
+
+
+#Si lees esto, felicidades, has llegado al final del archivo tareas.py
