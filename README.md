@@ -173,24 +173,6 @@ Bienvenido admin!
 
 ---
 
-## Archivos Generados
-
-### usuarios.json
-Almacena los datos de todos los usuarios del sistema:
-```json
-{
-    "admin": {
-        "password": "admin123",
-        "rol": "jefe"
-    },
-    "juan": {
-        "password": "1234",
-        "rol": "empleado"
-    }
-}
-```
----
-
 ## Temas de Python Aplicados
 
 - **POO (Programación Orientada a Objetos)** - Clases Usuario, Tarea
