@@ -119,17 +119,15 @@ cd sistema-tareas
 ### 2. Crear entorno virtual (opcional)
 ```bash
 # Windows
-python -m venv venv
-venv\Scripts\activate
+python -m py_compile .\src\main.py 
 
 # macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
+python3 -m py_compile ./src/main.py
 ```
 
 ### 3. Ejecutar el programa
 ```bash
-python main.py
+ .\src\main.py 
 ```
 
 ---
