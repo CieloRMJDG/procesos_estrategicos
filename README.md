@@ -112,7 +112,7 @@ Sistema de Tareas
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/sistema-tareas.git
+git clone https://github.com/CieloRMJDG/procesos_estrategicos.git
 cd sistema-tareas
 ```
 
