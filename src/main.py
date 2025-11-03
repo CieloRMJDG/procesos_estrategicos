@@ -1,5 +1,6 @@
 from modules.usuarios import SistemaUsuarios
 from modules.tareas import Tarea, GestorTareas # Importar clases Tarea y GestorTareas, para usar a futuro
+from modules.reporte import generar_reporte
 
 
 def mostrar_menu_principal():
@@ -60,6 +61,10 @@ def main():
                                 for t in tareas:
                                     print(t)
                                     print("-------------------")
+                                generar = input("¿Generar reporte CSV con estas tareas? (si/no): ").lower()
+                                if generar == "si":
+                                    exito, mensaje = generar_reporte(tareas, 'data/reporte_tareas.csv')
+                                    print(mensaje)
                         elif opcion == "3":
                             titulo = input("Título de la tarea: ")
                             descripcion = input("Descripción: ")
@@ -90,6 +95,11 @@ def main():
                                 for t in tareas_usuario:
                                     print(t)
                                     print("-------------------")
+                                generar = input("¿Generar reporte CSV con tus tareas? (si/no): ").lower()
+                                if generar == "si":
+                                    ruta = f"data/reporte_{usuario_actual}.csv"
+                                    exito, mensaje = generar_reporte(tareas_usuario, ruta)
+                                    print(mensaje)
                         elif opcion == "2":
                             titulo = input("Título de la tarea: ")
                             descripcion = input("Descripción: ")
