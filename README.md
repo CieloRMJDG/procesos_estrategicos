@@ -112,8 +112,7 @@ Sistema de Tareas
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/CieloRMJDG/procesos_estrategicos.git
-cd sistema-tareas
+< git clone https://github.com/CieloRMJDG/procesos_estrategicos.git
 ```
 
 ### 2. Crear entorno virtual (opcional)
