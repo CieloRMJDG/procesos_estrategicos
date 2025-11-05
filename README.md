@@ -185,12 +185,10 @@ Bienvenido admin!
 ## Estado del Proyecto
 
 ### Completado 
+- Estructura del proyecto
 - Módulo de usuarios (Laura)
 - Sistema de autenticación (Cielo)
-- Estructura del proyecto
-
-### En Desarrollo
-- Módulo de tareas (Leonardo)
+- Módulo de tareas (Jeonardo)
 - Interfaz de menús (Bocanegra)
 - Generación de reportes (Bocanegra)
 
