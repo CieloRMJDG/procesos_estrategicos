@@ -153,10 +153,7 @@ Bienvenido admin!
 1. Ver todos los empleados
 2. Ver todas las tareas
 3. Crear tarea nueva
-4. Asignar tarea a empleado
-5. Registrar nuevo empleado
-6. Generar reporte CSV
-7. Salir
+4. Salir
 ```
 
 ### Menú de Empleado
