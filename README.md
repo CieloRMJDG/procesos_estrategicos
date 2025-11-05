@@ -32,7 +32,7 @@ Encargada de la gestión de usuarios y el manejo de roles dentro del sistema. De
 
 **Entrega:** Módulo `usuarios.py` con clase Usuario y SistemaUsuarios, asegurando la correcta carga, almacenamiento y validación de usuarios.
 
-### LEONARDO - Módulo de Tareas
+### JEONARDO - Módulo de Tareas
 Responsable del módulo de tareas. Crea la estructura de la clase Task e implementa acciones como crear tareas nuevas, asignarlas a usuarios, mostrarlas en la consola y actualizar su estado (pendiente o completada). Gestiona el archivo `tareas.csv` manteniendo las tareas guardadas correctamente.
 
 **Entrega:** Módulo `tareas.py` integrado al menú principal
@@ -205,7 +205,7 @@ Cada integrante del equipo ha realizado al menos 3 commits significativos:
 
 - **Cielo:** Sistema de autenticación y validación de credenciales
 - **Laura:** Clase Usuario, SistemaUsuarios, validaciones robustas
-- **Leonardo:** Clase Tarea, gestión de tareas, manejo de CSV
+- **Jeonardo:** Clase Tarea, gestión de tareas, manejo de CSV
 - **Bocanegra:** Menús interactivos, reportes CSV, experiencia de usuario
 
 ---
